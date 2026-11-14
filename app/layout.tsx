@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
-  title: "Claude Atölye — Claude Code öğrenme platformu",
+  title: "Claude Academy — Claude Code learning platform",
   description: "Türkçe ve İngilizce, uygulamalı Claude Code öğrenme platformu.",
   manifest: "/site.webmanifest"
 };

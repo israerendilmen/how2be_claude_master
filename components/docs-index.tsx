@@ -23,7 +23,7 @@ export function DocsIndex({ documents }: { documents: DocumentRecord[] }) {
         <span className="language-button">TR / EN</span>
       </header>
       <section className="docs-hero">
-        <p className="eyebrow"><span className="eyebrow-dot" /> Claude Atölye / tüm içerik</p>
+        <p className="eyebrow"><span className="eyebrow-dot" /> Claude Academy / tüm içerik</p>
         <h1>Öğrenme kütüphanesi<span>.</span></h1>
         <p>Repo içindeki tüm rehberleri, modülleri, referansları ve şablonları tek bir arayüzde keşfet.</p>
         <div className="docs-stats"><strong>{documents.length}</strong><span>kaynak doküman</span><strong>10</strong><span>öğrenme modülü</span></div>

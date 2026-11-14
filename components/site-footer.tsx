@@ -10,7 +10,7 @@ export function GithubProfile() {
 }
 
 export function Brand() {
-  return <img className="brand-logo" src="/brand/claude-atelier.svg" alt="Claude Atölye" />;
+  return <img className="brand-logo" src="/brand/claude-atelier.svg" alt="Claude Academy" />;
 }
 
 export function SiteFooter() {

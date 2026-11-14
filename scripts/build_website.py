@@ -7,7 +7,7 @@
 # raw `</...>` inside code spans (e.g. `read -r INPUT </dev/tty`) and silently
 # truncates the rendered page.
 """
-Build a static website from the Claude Atölye markdown files.
+Build a static website from the Claude Academy markdown files.
 
 Usage:
     uv run scripts/build_website.py
@@ -146,7 +146,7 @@ class WebsiteConfig:
     output_path: Path
     repo_url: str = REPO_URL
     branch: str = DEFAULT_BRANCH
-    site_title: str = "Claude Atölye"
+    site_title: str = "Claude Academy"
     site_subtitle: str = "Learn Claude Code by building real workflows"
     language: str = "en"
     landing: bool = False  # render the marketing landing page as index.html
@@ -1134,7 +1134,7 @@ def build_website(
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Build the Claude Atölye documentation website."
+        description="Build the Claude Academy documentation website."
     )
     parser.add_argument(
         "--root",

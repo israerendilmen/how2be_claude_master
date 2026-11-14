@@ -28,7 +28,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ slug:
         </aside>
         <article className="doc-article">
           <div className="doc-article-head">
-            <span className="eyebrow">Claude Atölye / documentation</span>
+            <span className="eyebrow">Claude Academy / documentation</span>
             <h1>{document.title}</h1>
             <p>{document.excerpt}</p>
           </div>

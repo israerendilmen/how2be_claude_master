@@ -118,7 +118,7 @@ export const modules: Module[] = [
 
 export const copy = {
   tr: {
-    brand: "Claude Atölye",
+    brand: "Claude Academy",
     navModules: "Modüller",
     navHow: "Nasıl çalışır?",
     navLesson: "İlk ders",
@@ -132,7 +132,7 @@ export const copy = {
     modules: "modül",
     hours: "öğrenme saati",
     bilingual: "iki dil",
-    terminalLabel: "claude-atolye / ilk-oturum",
+    terminalLabel: "claude-academy / ilk-oturum",
     terminalPrompt: "İlk projem için güvenli bir başlangıç akışı öner.",
     terminalResult: "3 adım bulundu · 1 öneri hazır",
     roadmapKicker: "Öğrenme yolu",
@@ -156,7 +156,7 @@ export const copy = {
     footer: "Açık kaynak, uygulamalı Claude Code eğitimi."
   },
   en: {
-    brand: "Claude Atelier",
+    brand: "Claude Academy",
     navModules: "Modules",
     navHow: "How it works",
     navLesson: "First lesson",
@@ -170,7 +170,7 @@ export const copy = {
     modules: "modules",
     hours: "learning hours",
     bilingual: "bilingual",
-    terminalLabel: "claude-atelier / first-session",
+    terminalLabel: "claude-academy / first-session",
     terminalPrompt: "Suggest a safe starting workflow for my first project.",
     terminalResult: "3 steps found · 1 recommendation ready",
     roadmapKicker: "Learning path",

@@ -1,6 +1,6 @@
 {
-  "name": "Claude Atölye",
-  "short_name": "Claude Atölye",
+  "name": "Claude Academy",
+  "short_name": "Claude Academy",
   "description": "Türkçe ve İngilizce, uygulamalı Claude Code öğrenme platformu.",
   "start_url": "/",
   "display": "standalone",

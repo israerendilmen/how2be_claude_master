@@ -1,8 +1,8 @@
-# Claude Atölye
+# Claude Academy
 
 Türkçe ve İngilizce, uygulamalı Claude Code öğrenme platformu.
 
-Claude Atölye; Claude Code'u tek seferlik prompt'lardan güvenilir çalışma
+Claude Academy; Claude Code'u tek seferlik prompt'lardan güvenilir çalışma
 akışlarına taşıyan, seviyeye göre ilerleyen ve doğrudan uygulanabilir dersler
 sunan açık kaynaklı bir öğrenme alanıdır.
 
@@ -72,7 +72,7 @@ Vietnamca, Çince, Japonca, Korece, Ukraynaca ve Farsça kaynak klasörleri
 bulunur. Bu çeviriler web kataloğuna sonraki içerik katmanı olarak eklenebilir;
 şimdilik kaynak klasörlerinden korunur.
 
-Claude Atölye, [luongnv89/claude-howto](https://github.com/luongnv89/claude-howto)
+Claude Academy, [luongnv89/claude-howto](https://github.com/luongnv89/claude-howto)
 projesinden esinlenen bir fork ve yeniden tasarım çalışmasıdır. Upstream
 kaynak, footer ve lisans bilgileriyle görünür biçimde belirtilir.
 
