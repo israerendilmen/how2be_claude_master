@@ -1,6 +1,4 @@
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "Claude Academy — Claude Code learning platform",
@@ -24,8 +22,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="tr">
       <body>
         {children}
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

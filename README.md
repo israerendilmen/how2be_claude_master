@@ -18,7 +18,6 @@ Next.js app lives at the repository root:
 - 93 Markdown kaynağından generated documentation catalog
 - Arama, filtreler / search, filters and readable document pages
 - Örnek ders / first lesson: `/lesson/ilk-ders`
-- Vercel Analytics and Speed Insights
 
 ## Local development / Yerel geliştirme
 
@@ -40,8 +39,10 @@ Build command: npm run build
 Framework: Next.js
 ```
 
-Analytics and Speed Insights are mounted in `app/layout.tsx` for every page.
-Vercel dashboard'dan iki paneli enable etmen yeterlidir.
+Analytics and Speed Insights are intentionally not included, so the project
+does not create usage-based observability costs. Vercel dashboard'da daha
+önce etkinleştirildiyse Analytics ve Speed Insights panellerini ayrıca
+disable et.
 
 ## Content sources / İçerik kaynakları
 
