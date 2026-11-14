@@ -19,6 +19,7 @@ Next.js app lives at the repository root:
 - Arama, filtreler / search, filters and readable document pages
 - Örnek ders / first lesson: `/lesson/ilk-ders`
 - Vercel Analytics and Speed Insights
+- CDN caching, security headers and crawler pacing
 
 ## Local development / Yerel geliştirme
 
