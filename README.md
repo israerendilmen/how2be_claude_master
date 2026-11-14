@@ -8,7 +8,7 @@ sunan açık kaynaklı bir öğrenme alanıdır.
 
 ## Platform
 
-Next.js arayüzü `web/` klasöründe bulunur:
+Next.js uygulaması repository kökünde bulunur:
 
 - Seviye tespiti: Başlangıç, Orta Seviye, İleri Seviye
 - Oyunlaştırılmış roadmap ve XP ilerlemesi
@@ -27,11 +27,9 @@ npm run dev
 
 Tarayıcıda `http://localhost:3000` adresini aç.
 
-Yalnızca web workspace'inde çalışmak istersen:
+Geliştirme sunucusunu doğrudan kökten çalıştır:
 
 ```bash
-cd web
-npm install
 npm run dev
 ```
 
@@ -46,7 +44,7 @@ Build command: npm run build
 Framework: Next.js
 ```
 
-Analytics ve Speed Insights bileşenleri `web/app/layout.tsx` içinde tüm
+Analytics ve Speed Insights bileşenleri `app/layout.tsx` içinde tüm
 sayfalara bağlıdır. Vercel dashboard'dan iki paneli etkinleştirmen yeterlidir.
 
 ## İçerik kaynakları
@@ -83,7 +81,7 @@ kaynak, footer ve lisans bilgileriyle görünür biçimde belirtilir.
 ```bash
 uv run scripts/check_cross_references.py
 uv run scripts/check_markdown_rendering.py
-cd web && npm run build
+npm run build
 ```
 
 ## Lisans

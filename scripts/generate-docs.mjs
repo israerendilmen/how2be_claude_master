@@ -2,13 +2,12 @@ import fs from "node:fs";
 import path from "node:path";
 import { marked } from "marked";
 
-const webRoot = process.cwd();
-const repoRoot = path.resolve(webRoot, "..");
-const outputPath = path.join(webRoot, "data", "docs.json");
+const repoRoot = process.cwd();
+const outputPath = path.join(repoRoot, "data", "docs.json");
 const ignored = new Set([
   ".git", ".github", ".claude", ".venv", "venv", "env", "node_modules", "scripts",
   "site", "local-progress", "promo-video", "blog-posts", "openspec",
-  "archive", "vi", "zh", "ja", "uk", "ko", "fa", "web"
+  "archive", "vi", "zh", "ja", "uk", "ko", "fa", "data"
 ]);
 
 function walk(directory) {

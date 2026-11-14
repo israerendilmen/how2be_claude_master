@@ -2,9 +2,7 @@
 .github
 .claude
 node_modules
-web/node_modules
 .next
-web/.next
-web/data
+data
 scripts/.vendor-cache
 coverage.xml

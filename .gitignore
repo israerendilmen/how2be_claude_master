@@ -72,7 +72,7 @@ dist/
 build/
 node_modules/
 .next/
-web/.next/
+data/
 
 # Coverage reports
 .coverage
@@ -94,7 +94,6 @@ promo-video/
 
 update-plan*.md
 site/
-web/data/
 .gstack/
 
 # Cached vendor binaries/assets (Tailwind CLI, Pele bundle, fonts) for the website,
