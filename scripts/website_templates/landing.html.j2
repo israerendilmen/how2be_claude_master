@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-language="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -54,14 +54,19 @@
         />
       </a>
       <nav class="nav-links" id="nav-menu" aria-label="Primary">
-        <a href="#why">Why</a>
-        <a href="#vs-docs">vs&nbsp;Docs</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="{{ guide_url }}">Guide</a>
+        <a href="#why" data-i18n="navWhy">Why</a>
+        <a href="#vs-docs" data-i18n="navDocs">vs&nbsp;Docs</a>
+        <a href="#roadmap" data-i18n="navRoadmap">Roadmap</a>
+        <a href="{{ guide_url }}" data-i18n="navGuide">Guide</a>
         <a href="{{ repo_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
       <div class="nav-actions">
-        <a class="btn btn-primary btn-sm nav-cta" href="#roadmap">Start learning</a>
+        <a class="btn btn-primary btn-sm nav-cta" href="#roadmap" data-i18n="navStart">Start learning</a>
+        <button class="language-toggle" id="language-toggle" type="button" aria-label="Türkçeye geç">
+          <span class="language-current">TR</span>
+          <span class="language-divider">/</span>
+          <span>EN</span>
+        </button>
         <button
           class="theme-toggle"
           id="theme-toggle"
@@ -99,32 +104,32 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <div class="eyebrow-row reveal" style="--d: 0s">
-            <p class="eyebrow">~/claude-howto · a weekend curriculum</p>
+            <p class="eyebrow" data-i18n="eyebrow">~/claude-howto · a weekend curriculum</p>
             {% if version %}<span class="version-pill">Synced to v{{ version }}</span>{% endif %}
           </div>
           <h1 class="hero-title reveal" style="--d: 0.08s">
-            Master <em>Claude&nbsp;Code</em><br />in a Weekend
+            <span data-i18n="heroTitle">Master <em>Claude&nbsp;Code</em><br />in a Weekend</span>
           </h1>
           <p class="hero-sub reveal" style="--d: 0.16s">
-            Go from typing <code>claude</code> to orchestrating agents, hooks,
+            <span data-i18n="heroSub">Go from typing <code>claude</code> to orchestrating agents, hooks,
             skills, and MCP servers — with visual tutorials, copy&#8209;paste
-            templates, and a guided learning path.
+            templates, and a guided learning path.</span>
           </p>
           <div class="hero-cta reveal" style="--d: 0.24s">
-            <a class="btn btn-primary" href="#roadmap">Start the roadmap</a>
-            <a class="btn btn-ghost" href="{{ guide_url }}">Read the guide</a>
+            <a class="btn btn-primary" href="#roadmap" data-i18n="heroCta">Start the roadmap</a>
+            <a class="btn btn-ghost" href="ilk-ders.html" data-i18n="lessonCta">Try the first lesson</a>
           </div>
           <dl class="hero-stats reveal" style="--d: 0.32s">
             <div class="stat">
-              <dt>Modules</dt>
+              <dt data-i18n="statModules">Modules</dt>
               <dd>{{ module_count }}</dd>
             </div>
             <div class="stat">
-              <dt>Time</dt>
+              <dt data-i18n="statTime">Time</dt>
               <dd>11–13&nbsp;h</dd>
             </div>
             <div class="stat">
-              <dt>Languages</dt>
+              <dt data-i18n="statLanguages">Languages</dt>
               <dd>6</dd>
             </div>
           </dl>
@@ -162,8 +167,8 @@
 
     {# ============ Why / value ============ #}
     <section class="section" id="why">
-      <p class="kicker reveal">Why this guide</p>
-      <h2 class="section-title reveal">The docs tell you <em>what</em>.<br />This shows you <em>how</em>.</h2>
+      <p class="kicker reveal" data-i18n="whyKicker">Why this guide</p>
+      <h2 class="section-title reveal" data-i18n="whyTitle">The docs tell you <em>what</em>.<br />This shows you <em>how</em>.</h2>
       <div class="cards">
         <article class="card reveal">
           <div class="card-glyph" aria-hidden="true">
@@ -273,11 +278,11 @@
 
     {# ============ Roadmap ============ #}
     <section class="section roadmap" id="roadmap">
-      <p class="kicker reveal">The roadmap</p>
-      <h2 class="section-title reveal">Ten stations, one line</h2>
+      <p class="kicker reveal" data-i18n="roadmapKicker">The roadmap</p>
+      <h2 class="section-title reveal" data-i18n="roadmapTitle">Ten stations, one line</h2>
       <p class="section-sub reveal">
         Three levels, {{ module_count }} modules, {{ lesson_count }} lessons.
-        Progress is saved in your browser — check lessons off as you go.
+        <span data-i18n="roadmapSub">Progress is saved in your browser — check lessons off as you go.</span>
       </p>
 
       <div class="progress-panel reveal" id="progress-panel">
@@ -378,10 +383,21 @@
       </div>
     </section>
 
+    <section class="section example-lesson" id="first-lesson">
+      <div>
+        <p class="kicker reveal" data-i18n="lessonKicker">First lesson</p>
+        <h2 class="section-title reveal" data-i18n="lessonTitle">Build your first safe Claude Code loop</h2>
+        <p class="section-sub reveal" data-i18n="lessonSub">
+          A bilingual, copy-paste lesson: inspect, plan, change, and verify in 15 minutes.
+        </p>
+      </div>
+      <a class="btn btn-primary reveal" href="ilk-ders.html" data-i18n="lessonLink">Open the example lesson →</a>
+    </section>
+
     {# ============ Get started ============ #}
     <section class="section" id="get-started">
-      <p class="kicker reveal">Get started</p>
-      <h2 class="section-title reveal">Fifteen minutes to your first workflow</h2>
+      <p class="kicker reveal" data-i18n="startKicker">Get started</p>
+      <h2 class="section-title reveal" data-i18n="startTitle">Fifteen minutes to your first workflow</h2>
       <ol class="steps">
         <li class="step reveal">
           <span class="step-num" aria-hidden="true">01</span>

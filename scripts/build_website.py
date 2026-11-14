@@ -7,7 +7,7 @@
 # raw `</...>` inside code spans (e.g. `read -r INPUT </dev/tty`) and silently
 # truncates the rendered page.
 """
-Build a static website from the Claude How-To markdown files.
+Build a static website from the Claude Atölye markdown files.
 
 Usage:
     uv run scripts/build_website.py
@@ -69,7 +69,7 @@ from vendor_assets import (
 # Configuration
 # =============================================================================
 
-REPO_URL = "https://github.com/luongnv89/claude-howto"
+REPO_URL = "https://github.com/israerendilmen/how2be_claude_master"
 DEFAULT_BRANCH = "main"
 
 # Files/dirs that exist in the repo but should not appear on the site.
@@ -130,6 +130,7 @@ CHAPTER_ORDER: list[tuple[str, str]] = [
     ("08-checkpoints", "Checkpoints"),
     ("09-advanced-features", "Advanced Features"),
     ("10-cli", "CLI Reference"),
+    ("ilk-ders.md", "First Lesson"),
     ("CATALOG.md", "Feature Catalog"),
     ("INDEX.md", "Index"),
     ("STYLE_GUIDE.md", "Style Guide"),
@@ -145,8 +146,8 @@ class WebsiteConfig:
     output_path: Path
     repo_url: str = REPO_URL
     branch: str = DEFAULT_BRANCH
-    site_title: str = "Claude Code How-To Guide"
-    site_subtitle: str = "Master Claude Code in a Weekend"
+    site_title: str = "Claude Atölye"
+    site_subtitle: str = "Learn Claude Code by building real workflows"
     language: str = "en"
     landing: bool = False  # render the marketing landing page as index.html
     roadmap_path: Path | None = None  # defaults to website_templates/roadmap.json
@@ -1133,7 +1134,7 @@ def build_website(
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Build a static website from Claude How-To markdown files."
+        description="Build the Claude Atölye documentation website."
     )
     parser.add_argument(
         "--root",

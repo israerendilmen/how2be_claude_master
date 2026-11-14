@@ -258,6 +258,53 @@ a:hover {
   text-underline-offset: 3px;
 }
 
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22rem;
+  min-height: 2rem;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-dim);
+  font: 600 0.72rem/1 var(--font-mono);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  border-color: var(--green-vivid);
+  color: var(--text);
+}
+
+.language-toggle.is-tr .language-current {
+  color: var(--green);
+}
+
+.language-divider {
+  color: var(--text-faint);
+}
+
+.example-lesson {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  border: 1px solid var(--green-line);
+  border-radius: 1rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--green-tint-03);
+}
+
+@media (max-width: 640px) {
+  .example-lesson {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
 code {
   font-family: var(--font-mono);
   font-size: 0.875em;

@@ -1,0 +1,17 @@
+{
+  "name": "Claude Atölye",
+  "short_name": "Claude Atölye",
+  "description": "Türkçe ve İngilizce, uygulamalı Claude Code öğrenme platformu.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f5f0",
+  "theme_color": "#17191c",
+  "icons": [
+    {
+      "src": "/brand/claude-atelier-mark.svg",
+      "sizes": "128x128",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

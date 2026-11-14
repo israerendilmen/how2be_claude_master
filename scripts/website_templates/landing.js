@@ -9,6 +9,66 @@
   root.classList.remove("no-js");
   root.classList.add("js");
 
+  var LANGUAGE_KEY = "claude-howto-language";
+  var translations = {
+    tr: {
+      navWhy: "Neden",
+      navDocs: "Dokümanlara karşı",
+      navRoadmap: "Yol haritası",
+      navGuide: "Rehber",
+      navStart: "Öğrenmeye başla",
+      eyebrow: "~/claude-howto · hafta sonu müfredatı",
+      heroTitle: "Bir hafta sonunda <em>Claude Code</em> öğren",
+      heroSub: "<code>claude</code> komutundan agent, hook, skill ve MCP sunucularını yöneten akışlara geç — görsel dersler, kopyala-yapıştır şablonlar ve rehberli öğrenme yolu.",
+      heroCta: "Yol haritasına başla",
+      lessonCta: "İlk dersi dene",
+      statModules: "Modül",
+      statTime: "Süre",
+      statLanguages: "Dil",
+      whyKicker: "Bu rehber neden var?",
+      whyTitle: "Dokümanlar sana <em>ne</em> olduğunu söyler.<br />Biz <em>nasıl</em> yapılacağını gösteririz.",
+      roadmapKicker: "Yol haritası",
+      roadmapTitle: "Tek bir akışta on durak",
+      roadmapSub: "İlerleme tarayıcında saklanır — ilerledikçe dersleri işaretle.",
+      lessonKicker: "İlk ders",
+      lessonTitle: "Claude Code ile ilk güvenli çalışma döngünü kur",
+      lessonSub: "15 dakikada incele, planla, değiştir ve doğrula: iki dilli, kopyala-yapıştır bir örnek ders.",
+      lessonLink: "Örnek dersi aç →",
+      startKicker: "Başlangıç",
+      startTitle: "İlk iş akışına on beş dakikada ulaş"
+    }
+  };
+  var languageToggle = document.getElementById("language-toggle");
+  var currentLanguage = "en";
+  function applyLanguage(language) {
+    var dictionary = language === "tr" ? translations.tr : null;
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      if (dictionary && dictionary[key]) {
+        el.innerHTML = dictionary[key];
+      } else {
+        el.dataset.defaultText = el.dataset.defaultText || el.innerHTML;
+        el.innerHTML = el.dataset.defaultText;
+      }
+    });
+    root.lang = language === "tr" ? "tr" : "en";
+    currentLanguage = language;
+    if (languageToggle) {
+      languageToggle.setAttribute("aria-label", language === "tr" ? "Switch to English" : "Türkçeye geç");
+      languageToggle.classList.toggle("is-tr", language === "tr");
+    }
+  }
+  var savedLanguage = null;
+  try { savedLanguage = window.localStorage.getItem(LANGUAGE_KEY); } catch (e) {}
+  applyLanguage(savedLanguage === "tr" ? "tr" : "en");
+  if (languageToggle) {
+    languageToggle.addEventListener("click", function () {
+      var next = currentLanguage === "tr" ? "en" : "tr";
+      applyLanguage(next);
+      try { window.localStorage.setItem(LANGUAGE_KEY, next); } catch (e) {}
+    });
+  }
+
   var STORAGE_KEY = "claude-howto.progress.v1";
   var VALID_STATUS = { "not-started": true, "in-progress": true, "done": true };
   var STATUS_LABEL = {
