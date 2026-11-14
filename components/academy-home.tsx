@@ -100,6 +100,11 @@ export function AcademyHome() {
 
   const visibleGroups = level ? groups.filter((group) => group.id === level) : groups;
   const activeLevel = groups.find((group) => group.id === level);
+  const totalSteps = modules.reduce((total, module) => total + module.steps.length, 0);
+  const completedSteps = modules.reduce((total, module) => {
+    const steps = stepProgress[module.number] ?? [];
+    return total + (completed.includes(module.number) ? module.steps.length : steps.length);
+  }, 0);
 
   return (
     <main className="site-shell">
@@ -171,7 +176,7 @@ export function AcademyHome() {
           <p>{language === "tr" ? "Her düğüm bir beceri. İlerledikçe yeni seviyeler açılır." : "Every node is a skill. New levels unlock as you move."}</p>
         </div>
         <div className="roadmap-map">
-          <div className="map-track"><span style={{ width: `${(completed.length / modules.length) * 100}%` }} /></div>
+          <div className="map-track"><span style={{ width: `${(completedSteps / totalSteps) * 100}%` }} /></div>
           {visibleGroups.map((group) => (
             <div className="roadmap-level" key={group.number}>
               <div className="level-marker" style={{ backgroundColor: group.color }}>{group.number}</div>
@@ -186,7 +191,7 @@ export function AcademyHome() {
                       <span className="node-icon" style={{ backgroundColor: module.color }}>{isDone ? "✓" : module.icon}</span>
                       <span className="node-number">{module.number}</span>
                       <strong>{module.title[language]}</strong>
-                      <small>{module.duration}</small>
+                      <small>{(stepProgress[module.number] ?? []).length}/{module.steps.length} · {module.duration}</small>
                       {isLocked && <i>⌑</i>}
                     </button>
                   );
