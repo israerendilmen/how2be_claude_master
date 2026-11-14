@@ -13,6 +13,7 @@ export function AcademyHome() {
   const [language, setLanguage] = useState<Language>("tr");
   const [activeModule, setActiveModule] = useState(0);
   const [completed, setCompleted] = useState<string[]>([]);
+  const [stepProgress, setStepProgress] = useState<Record<string, number[]>>({});
   const [level, setLevel] = useState<"beginner" | "intermediate" | "advanced" | null>(null);
   const [notice, setNotice] = useState("");
   const t = copy[language];
@@ -35,6 +36,8 @@ export function AcademyHome() {
     if (saved === "tr" || saved === "en") setLanguage(saved);
     const savedProgress = window.localStorage.getItem("claude-atelier-progress");
     if (savedProgress) setCompleted(JSON.parse(savedProgress));
+    const savedSteps = window.localStorage.getItem("claude-atelier-step-progress");
+    if (savedSteps) setStepProgress(JSON.parse(savedSteps));
     const savedLevel = window.localStorage.getItem("claude-atelier-level");
     if (savedLevel === "beginner" || savedLevel === "intermediate" || savedLevel === "advanced") {
       setLevel(savedLevel);
@@ -69,9 +72,24 @@ export function AcademyHome() {
           document.getElementById("roadmap")?.scrollIntoView({ behavior: "smooth", block: "start" });
         }, 120);
       }
+
     }
     setNotice(wasCompleted ? (language === "tr" ? "Görev yeniden açıldı." : "Quest reopened.") : "+150 XP kazandın!");
     window.setTimeout(() => setNotice(""), 2400);
+  }
+
+  function toggleQuestStep(number: string, stepIndex: number) {
+    const current = stepProgress[number] ?? [];
+    const nextSteps = current.includes(stepIndex)
+      ? current.filter((step) => step !== stepIndex)
+      : [...current, stepIndex].sort();
+    const nextProgress = { ...stepProgress, [number]: nextSteps };
+    setStepProgress(nextProgress);
+    window.localStorage.setItem("claude-atelier-step-progress", JSON.stringify(nextProgress));
+    const module = modules.find((item) => item.number === number);
+    if (module && nextSteps.length === module.steps.length && !completed.includes(number)) {
+      completeModule(number);
+    }
   }
 
   function chooseLevel(nextLevel: "beginner" | "intermediate" | "advanced") {
@@ -178,7 +196,24 @@ export function AcademyHome() {
           ))}
         </div>
         <div className="selected-quest">
-          <div><span className="eyebrow">{language === "tr" ? "Seçili görev" : "Selected quest"} · {modules[activeModule].duration}</span><h3>{modules[activeModule].title[language]}</h3><p>{modules[activeModule].description[language]}</p><div className="selected-lessons">{modules[activeModule].lessons.map((lesson) => <Link href={`/docs/${moduleDocs[modules[activeModule].number]}`} key={lesson.en}>○ {lesson[language]}</Link>)}</div></div>
+          <div className="selected-quest-copy">
+            <span className="eyebrow">{language === "tr" ? "Seçili görev" : "Selected quest"} · {modules[activeModule].duration}</span>
+            <h3>{modules[activeModule].title[language]}</h3>
+            <p>{modules[activeModule].description[language]}</p>
+            <div className="quest-step-heading"><span>{language === "tr" ? "Görev adımları" : "Quest steps"}</span><strong>{(stepProgress[modules[activeModule].number] ?? []).length}/{modules[activeModule].steps.length}</strong></div>
+            <div className="quest-step-list">
+              {modules[activeModule].steps.map((step, index) => {
+                const isDone = (stepProgress[modules[activeModule].number] ?? []).includes(index);
+                return (
+                  <button className={`quest-step ${isDone ? "is-done" : ""}`} key={step.title.en} onClick={() => toggleQuestStep(modules[activeModule].number, index)}>
+                    <span className="quest-step-dot">{isDone ? "✓" : String(index + 1).padStart(2, "0")}</span>
+                    <span><b>{step.title[language]}</b><small>{step.detail[language]}</small></span>
+                  </button>
+                );
+              })}
+            </div>
+            <Link className="quest-source-link" href={`/docs/${moduleDocs[modules[activeModule].number]}`}>{language === "tr" ? "Modül dokümanını aç" : "Open module docs"} <Arrow /></Link>
+          </div>
           <div className="selected-actions">
             <button className="complete-button" onClick={() => completeModule(modules[activeModule].number)}>{completed.includes(modules[activeModule].number) ? "✓ " : ""}{completed.includes(modules[activeModule].number) ? (language === "tr" ? "Tamamlandı" : "Completed") : (language === "tr" ? "Tamamla" : "Complete")}</button>
             <Link className="detail-link" href="/lesson/ilk-ders">{language === "tr" ? "Görevi aç" : "Open quest"} <Arrow /></Link>

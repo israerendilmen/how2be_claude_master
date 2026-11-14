@@ -7,6 +7,7 @@ export type Module = {
   title: Record<Language, string>;
   description: Record<Language, string>;
   lessons: Record<Language, string>[];
+  steps: { title: Record<Language, string>; detail: Record<Language, string> }[];
   duration: string;
   level: Record<Language, string>;
 };
@@ -26,6 +27,11 @@ export const modules: Module[] = [
       { tr: "Özel komutlar", en: "Custom commands" },
       { tr: "MCP prompt'ları", en: "MCP prompts" }
     ],
+    steps: [
+      { title: { tr: "Bağlamı oku", en: "Read the context" }, detail: { tr: "Claude Code'un proje klasörünü tanımasını iste.", en: "Ask Claude Code to understand the project folder." } },
+      { title: { tr: "İlk komutu çalıştır", en: "Run the first command" }, detail: { tr: "Küçük bir görevi slash komutuyla başlat.", en: "Start a small task with a slash command." } },
+      { title: { tr: "Çıktıyı doğrula", en: "Verify the output" }, detail: { tr: "Sonucu kontrol et ve bir sonraki görevi seç.", en: "Check the result and choose the next quest." } }
+    ],
     duration: "30 min",
     level: { tr: "Başlangıç", en: "Beginner" }
   },
@@ -42,6 +48,11 @@ export const modules: Module[] = [
       { tr: "CLAUDE.md temelleri", en: "CLAUDE.md basics" },
       { tr: "Kural hiyerarşisi", en: "Rule hierarchy" },
       { tr: "Otomatik hafıza", en: "Auto memory" }
+    ],
+    steps: [
+      { title: { tr: "Kuralını yaz", en: "Write your rule" }, detail: { tr: "Projendeki tekrar eden bir tercihi seç.", en: "Choose one repeatable project preference." } },
+      { title: { tr: "CLAUDE.md'ye taşı", en: "Move it to CLAUDE.md" }, detail: { tr: "Kuralı doğru seviyede kalıcı hale getir.", en: "Make the rule durable at the right level." } },
+      { title: { tr: "Oturumda dene", en: "Test the session" }, detail: { tr: "Yeni oturumda Claude'un kuralı izlediğini kontrol et.", en: "Check that Claude follows it in a new session." } }
     ],
     duration: "45 min",
     level: { tr: "Başlangıç+", en: "Beginner+" }
@@ -60,6 +71,11 @@ export const modules: Module[] = [
       { tr: "Skill oluşturma", en: "Create a skill" },
       { tr: "Skill yönetimi", en: "Manage skills" }
     ],
+    steps: [
+      { title: { tr: "Skill kapsamını seç", en: "Choose the skill scope" }, detail: { tr: "Skill'in hangi problemi çözeceğini netleştir.", en: "Define the problem your skill solves." } },
+      { title: { tr: "Talimatı paketle", en: "Package the instruction" }, detail: { tr: "Yüksek seviyeli talimatı tekrar kullanılabilir yap.", en: "Turn high-level guidance into a reusable skill." } },
+      { title: { tr: "Progressive disclosure", en: "Use progressive disclosure" }, detail: { tr: "Detayları yalnızca gerektiğinde yükle.", en: "Load details only when they are needed." } }
+    ],
     duration: "1 hour",
     level: { tr: "Orta", en: "Intermediate" }
   },
@@ -76,6 +92,11 @@ export const modules: Module[] = [
       { tr: "Subagent mantığı", en: "Subagent fundamentals" },
       { tr: "Arka plan görevleri", en: "Background tasks" },
       { tr: "Worktree izolasyonu", en: "Worktree isolation" }
+    ],
+    steps: [
+      { title: { tr: "Görevi böl", en: "Split the task" }, detail: { tr: "Büyük işi bağımsız parçalara ayır.", en: "Break the large task into independent pieces." } },
+      { title: { tr: "Uzmanı seç", en: "Choose the specialist" }, detail: { tr: "Her parçayı doğru subagent'a yönlendir.", en: "Route each piece to the right subagent." } },
+      { title: { tr: "Sonuçları birleştir", en: "Combine the results" }, detail: { tr: "Agent çıktısını tek bir doğrulanmış değişikliğe dönüştür.", en: "Turn agent outputs into one verified change." } }
     ],
     duration: "1.5 hours",
     level: { tr: "Orta+", en: "Intermediate+" }
@@ -94,6 +115,11 @@ export const modules: Module[] = [
       { tr: "Scope'lar", en: "MCP scopes" },
       { tr: "Tool search", en: "Tool search" }
     ],
+    steps: [
+      { title: { tr: "Sunucuyu bağla", en: "Connect a server" }, detail: { tr: "Bir MCP sunucusunu güvenli scope ile ekle.", en: "Add an MCP server with a safe scope." } },
+      { title: { tr: "Tool'u keşfet", en: "Discover a tool" }, detail: { tr: "İhtiyacın olan aracı arayıp çağır.", en: "Find and call the tool you need." } },
+      { title: { tr: "İzni sınırla", en: "Limit the permission" }, detail: { tr: "Gereksiz erişimi kapat ve sonucu kontrol et.", en: "Remove unnecessary access and verify the result." } }
+    ],
     duration: "1 hour",
     level: { tr: "Orta+", en: "Intermediate+" }
   },
@@ -110,6 +136,11 @@ export const modules: Module[] = [
       { tr: "Hook olayları", en: "Hook events" },
       { tr: "Girdi ve çıktı", en: "Input and output" },
       { tr: "Debugging", en: "Debugging" }
+    ],
+    steps: [
+      { title: { tr: "Olayı seç", en: "Choose the event" }, detail: { tr: "Kalite kontrolünü hangi olayda çalıştıracağını belirle.", en: "Choose when the quality check should run." } },
+      { title: { tr: "Hook'u yaz", en: "Write the hook" }, detail: { tr: "Kısa ve başarısız olduğunda açık hata veren bir kontrol ekle.", en: "Add a focused check with explicit failures." } },
+      { title: { tr: "Akışı güvenceye al", en: "Guard the workflow" }, detail: { tr: "Değişiklikten önce hook çıktısını ve logları incele.", en: "Review hook output and logs before changes land." } }
     ],
     duration: "1 hour",
     level: { tr: "Orta", en: "Intermediate" }
