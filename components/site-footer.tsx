@@ -19,6 +19,7 @@ export function SiteFooter() {
       <Brand />
       <p>Açık kaynak, uygulamalı Claude Code eğitimi.</p>
       <div className="footer-links">
+        <a href="https://claudelearnacademy.vercel.app" target="_blank" rel="noreferrer">Live site</a>
         <Link href="/docs">Dokümanlar</Link>
         <a href="https://github.com/israerendilmen/how2be_claude_master/tree/main/vi" target="_blank" rel="noreferrer">VI</a>
         <a href="https://github.com/israerendilmen/how2be_claude_master/tree/main/zh" target="_blank" rel="noreferrer">ZH</a>

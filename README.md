@@ -6,6 +6,8 @@ Claude Academy takes Claude Code from one-off prompts to reliable workflows.
 Seviyene göre ilerle, gerçek görevleri tamamla ve öğrendiklerini kendi
 project'ine taşı.
 
+Live site: [claudelearnacademy.vercel.app](https://claudelearnacademy.vercel.app/)
+
 ## Platform / Platform
 
 Next.js app lives at the repository root:
