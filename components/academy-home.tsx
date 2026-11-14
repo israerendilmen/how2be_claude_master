@@ -49,12 +49,28 @@ export function AcademyHome() {
   }
 
   function completeModule(number: string) {
+    const wasCompleted = completed.includes(number);
     const next = completed.includes(number)
       ? completed.filter((item) => item !== number)
       : [...completed, number];
     setCompleted(next);
     window.localStorage.setItem("claude-atelier-progress", JSON.stringify(next));
-    setNotice(completed.includes(number) ? (language === "tr" ? "Görev yeniden açıldı." : "Quest reopened.") : "+150 XP kazandın!");
+    if (!wasCompleted) {
+      const currentIndex = modules.findIndex((module) => module.number === number);
+      const activeRange = level ? groups.find((group) => group.id === level)?.range : [0, modules.length - 1];
+      const nextIndex = modules.findIndex((module, index) =>
+        index > currentIndex &&
+        index <= (activeRange?.[1] ?? modules.length - 1) &&
+        !next.includes(module.number)
+      );
+      if (nextIndex !== -1) {
+        setActiveModule(nextIndex);
+        window.setTimeout(() => {
+          document.getElementById("roadmap")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 120);
+      }
+    }
+    setNotice(wasCompleted ? (language === "tr" ? "Görev yeniden açıldı." : "Quest reopened.") : "+150 XP kazandın!");
     window.setTimeout(() => setNotice(""), 2400);
   }
 
